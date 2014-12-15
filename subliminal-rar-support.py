@@ -156,7 +156,7 @@ for dirs in os.walk(videodir).next()[1]:
                                 video_track = mkv.video_tracks[0]
 
                                 if video_track.codec_id == 'V_MPEG4/ISO/AVC':
-                                    video.video_codec = 'h268'
+                                    video.video_codec = 'h264'
                                 elif video_track.codec_id == 'V_MPEG4/ISO/SP':
                                     video.video_codec = 'DivX'
                                 elif video_track.codec_id == 'V_MPEG4/ISO/ASP':
