@@ -29,6 +29,7 @@ import logging
 import guessit
 import subliminal
 from subliminal import Movie, Episode, Video
+from time import sleep
 
 logging.basicConfig(filename='/tmp/subliminal-rar-support.log',level=logging.DEBUG)
 
@@ -206,9 +207,11 @@ for dirs in os.walk(videodir).next()[1]:
                         # save them to disk, next to the video
                         # save_subtitles(subtitles, single=False, directory=None, encoding=None)
                         subliminal.save_subtitles(subtitles, False, videodir + '/' + dirs + '/' )
+                        print 'Lets be nice to the subtitle services, and wait 10 sec.'
+                        sleep(10) # be nice to the sub sites
                     except Exception as e:
                         print e
-                        print "Unable to download subtitle"
+                        print 'Unable to download subtitle'
 
         # do not throw an exception if the .rar file is not the first volume
         except:
